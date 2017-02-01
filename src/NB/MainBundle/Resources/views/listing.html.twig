@@ -1,0 +1,238 @@
+{% extends '::base.html.twig' %}
+
+{% block breadcumb %}
+    <div class="page-title-container">
+        <div class="container">
+            <div class="page-title pull-left">
+                <h2 class="entry-title">Résultat de la recherche</h2>
+            </div>
+            <ul class="breadcrumbs pull-right">
+                <li><a href="">Acceuil</a></li>
+                <li class="active">Résultat des recherches</li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <section id="content">
+        <div class="container">
+            <div id="main">
+                <div class="row">
+                    <div class="col-sm-4 col-md-3">
+                        <h4 class="search-results-title"><i class="soap-icon-search"></i><b>1,984</b> résultat(s) trouvé(s).</h4>
+                        <div class="toggle-container filters-container">
+                            <div class="panel style1 arrow-right">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#price-filter" class="collapsed">Prix</a>
+                                </h4>
+                                <div id="price-filter" class="panel-collapse collapse">
+                                    <div class="panel-content">
+                                        <div id="price-range"></div>
+                                        <br />
+                                        <span class="min-price-label pull-left"></span>
+                                        <span class="max-price-label pull-right"></span>
+                                        <div class="clearer"></div>
+                                    </div><!-- end content -->
+                                </div>
+                            </div>
+
+                            <div class="panel style1 arrow-right">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#flight-times-filter" class="collapsed">Heure de départ</a>
+                                </h4>
+                                <div id="flight-times-filter" class="panel-collapse collapse">
+                                    <div class="panel-content">
+                                        <div id="flight-times" class="slider-color-yellow"></div>
+                                        <br />
+                                        <span class="start-time-label pull-left"></span>
+                                        <span class="end-time-label pull-right"></span>
+                                        <div class="clearer"></div>
+                                    </div><!-- end content -->
+                                </div>
+                            </div>
+
+                            <div class="panel style1 arrow-right">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#airlines-filter" class="collapsed">Compagnies de Transport</a>
+                                </h4>
+                                <div id="airlines-filter" class="panel-collapse collapse">
+                                    <div class="panel-content">
+                                        <ul class="check-square filters-option">
+                                            <li><a href="#">Major Airline<small>($620)</small></a></li>
+                                            <li><a href="#">United Airlines<small>($982)</small></a></li>
+                                            <li class="active"><a href="#">delta airlines<small>($1,127)</small></a></li>
+                                            <li><a href="#">Alitalia<small>($2,322)</small></a></li>
+                                            <li><a href="#">US airways<small>($3,158)</small></a></li>
+                                            <li><a href="#">Air France<small>($4,239)</small></a></li>
+                                            <li><a href="#">Air tahiti nui<small>($5,872)</small></a></li>
+                                        </ul>
+                                        <a class="button btn-mini">MORE</a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="panel style1 arrow-right">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#inflight-experience-filter" class="collapsed">Expérience à bord</a>
+                                </h4>
+                                <div id="inflight-experience-filter" class="panel-collapse collapse">
+                                    <div class="panel-content">
+                                        <ul class="check-square filters-option">
+                                            <li><a href="#">Inflight Dining</a></li>
+                                            <li><a href="#">Music</a></li>
+                                            <li class="active"><a href="#">Sky Shopping</a></li>
+                                            <li><a href="#">Wi-fi</a></li>
+                                            <li><a href="#">Seats &amp; Cabin</a></li>
+                                        </ul>
+                                        <a class="button btn-mini">MORE</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel style1 arrow-right">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#modify-search-panel" class="collapsed">Modifier recherche</a>
+                                </h4>
+                                <div id="modify-search-panel" class="panel-collapse collapse">
+                                    <div class="panel-content">
+                                        <form method="post">
+                                            <div class="form-group">
+                                                <label>Leaving from</label>
+                                                <input type="text" class="input-text full-width" placeholder="" value="city, district, or specific airpot" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Departure on</label>
+                                                <div class="datepicker-wrap">
+                                                    <input type="text" class="input-text full-width" placeholder="mm/dd/yy" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Arriving On</label>
+                                                <div class="datepicker-wrap">
+                                                    <input type="text" class="input-text full-width" placeholder="mm/dd/yy" />
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <button class="btn-medium icon-check uppercase full-width">search again</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8 col-md-9">
+
+
+                        <div class="flight-list listing-style3 flight">
+                            {% for key, val in search %}
+                                <article class="box">
+                                    <figure class="col-xs-3 col-sm-2">
+                                        <span><img alt="" src="{{ admin_link~"logo/"~val.comapanyLogo }}"></span>
+                                    </figure>
+                                    <div class="details col-xs-9 col-sm-10">
+                                        <div class="details-wrapper">
+                                            <div class="first-row">
+                                                <div>
+                                                    <h4 class="box-title">{{ val.busCompany }}<small>Oneway flight</small></h4>
+                                                    <a class="button btn-mini stop">{{ (val.busCapacity - val.bookedSeat)  }} PLACES</a>
+                                                    <div class="amenities">
+                                                        <i class="soap-icon-wifi circle"></i>
+                                                        <i class="soap-icon-entertainment circle"></i>
+                                                        <i class="soap-icon-fork circle"></i>
+                                                        <i class="soap-icon-suitcase circle"></i>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <span class="price"><small>TARIF/PERSONNE</small>{{ val.price|number_format(0, '.', ',')  }} FCFA</span>
+                                                </div>
+                                            </div>
+                                            <div class="second-row">
+                                                <div class="time">
+                                                    <div class="take-off col-sm-4">
+                                                        <div class="icon"><i class="soap-icon-plane-right yellow-color"></i></div>
+                                                        <div>
+                                                            <span class="skin-color">Départ </span><br /> {{ dateJ | date('d M Y') }}  {{ val.boardingTime |date('H:i') }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="landing col-sm-4">
+                                                        <div class="icon"><i class="soap-icon-plane-right yellow-color"></i></div>
+                                                        <div>
+                                                            <span class="skin-color">Arrivée </span><br />{{ dateJ | date('d M Y') }}  {{ val.arrivalTime |date('H:i') }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="total-time col-sm-4">
+                                                        <div class="icon"><i class="soap-icon-clock yellow-color"></i></div>
+                                                        <div>
+                                                            <span class="skin-color">total time</span><br />13 Hour, 40 minutes
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="action">
+                                                    <a href="flight-detailed.html" class="button btn-small full-width">SELECT NOW</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+
+                            {% endfor %}
+                        </div>
+                        <a class="button uppercase full-width btn-large">load more listings</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}
+
+
+{% block scripts %}
+    <script type="text/javascript">
+        tjq(document).ready(function() {
+            tjq("#price-range").slider({
+                range: true,
+                min: 0,
+                max: 100000,
+                values: [ 100, 800 ],
+                slide: function( event, ui ) {
+                    tjq(".min-price-label").html(ui.values[ 0 ] + " FCFA");
+                    tjq(".max-price-label").html(ui.values[ 1 ] + " FCFA");
+                }
+            });
+            tjq(".min-price-label").html(tjq("#price-range").slider( "values", 0 ) + " FCFA");
+            tjq(".max-price-label").html(tjq("#price-range").slider( "values", 1 ) + " FCFA");
+
+            function convertTimeToHHMM(t) {
+                var minutes = t % 60;
+                var hour = (t - minutes) / 60;
+                var timeStr = (hour + "").lpad("0", 2) + ":" + (minutes + "").lpad("0", 2);
+                var date = new Date("2014/01/01 " + timeStr + ":00");
+                var hhmm = date.toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
+                return hhmm;
+            }
+            tjq("#flight-times").slider({
+                range: true,
+                min: 0,
+                max: 1440,
+                step: 5,
+                values: [ 360, 1200 ],
+                slide: function( event, ui ) {
+
+                    tjq(".start-time-label").html( convertTimeToHHMM(ui.values[0]) );
+                    tjq(".end-time-label").html( convertTimeToHHMM(ui.values[1]) );
+                }
+            });
+            tjq(".start-time-label").html( convertTimeToHHMM(tjq("#flight-times").slider( "values", 0 )) );
+            tjq(".end-time-label").html( convertTimeToHHMM(tjq("#flight-times").slider( "values", 1 )) );
+        });
+
+
+
+
+    </script>
+{% endblock %}

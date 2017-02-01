@@ -1,0 +1,6 @@
+nb_main_homepage:
+    path:     /
+    defaults: { _controller: NBMainBundle:Main:index }
+nb_main_listing:
+    path:     /listing
+    defaults: { _controller: NBMainBundle:Main:listing }

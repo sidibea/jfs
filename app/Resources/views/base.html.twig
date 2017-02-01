@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<!--[if IE 8]>          <html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>          <html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->  <html> <!--<![endif]-->
+<head>
+    <!-- Page Title -->
+    <title>{% block title %} {% endblock %}</title>
+
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="keywords" content="{% block keywords %} {% endblock %}" />
+    <meta name="description" content="{% block description %}Avec nextBus, voyagez en bus au Mali et en Afrique de l'Ouest à prix discount. Découvrez la solution pour voyager simplement et moins chèr. Réservez/acheter votre billet en ligne en quelques clics ! {% endblock %}">
+    <meta name="author" content="Next Group SARL">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- Theme Styles -->
+    {% block themeStyles %}
+        {% stylesheets filter='cssrewrite, scssphp'
+        'assets/css/bootstrap.min.css'
+        'assets/css/font-awesome.min.css'
+        'http://fonts.googleapis.com/css?family=Lato:300,400,700'
+
+        %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    {% endblock %}
+
+    <!-- Current Page Styles -->
+    {% block currentPageStyles %}
+        {% stylesheets filter='cssrewrite, scssphp'
+        'assets/components/revolution_slider/css/settings.css'
+        'assets/components/revolution_slider/css/style.css'
+        'assets/components/jquery.bxslider/jquery.bxslider.css'
+        'assets/components/flexslider/flexslider.css'
+
+        %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    {% endblock %}
+
+    <!-- Main Style -->
+    {% block mainStyles %}
+        {% stylesheets filter='cssrewrite, scssphp'
+        'assets/css/style.css'
+
+        %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    {% endblock %}
+
+    <!-- Custom Styles -->
+    {% block customStyles %}
+        {% stylesheets filter='cssrewrite, scssphp'
+        'assets/css/custom.css'
+
+        %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    {% endblock %}
+
+    <!-- Updated Styles -->
+    {% block updatedStyles %}
+        {% stylesheets filter='cssrewrite, scssphp'
+        'assets/css/updates.css'
+
+        %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    {% endblock %}
+
+    <!-- Responsive Styles -->
+    {% block ResponsiveStyles %}
+        {% stylesheets filter='cssrewrite, scssphp'
+        'assets/css/responsive.css'
+
+        %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    {% endblock %}
+
+    <!-- CSS for IE -->
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" type="text/css" href="css/ie.css" />
+    <![endif]-->
+
+
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+
+
+    <!-- CSS for IE -->
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" type="text/css" href="{{ absolute_url(asset('assets/css/ie.css')) }}" />
+    <![endif]-->
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script type='text/javascript' src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<div id="page-wrapper">
+    <header id="header" class="navbar-static-top">
+        {% block header %}
+            {% include 'includes/header.html.twig' %}
+
+        {% endblock %}
+
+    </header>
+
+    {% block breadcumb %} {% endblock %}
+
+    {% block content %}
+
+    {% endblock %}
+
+
+
+    <footer id="footer">
+
+            {% block footer %}
+            <div class="footer-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-3">
+                            <h2>Discover</h2>
+                            <ul class="discover triangle hover row">
+                                <li class="col-xs-6"><a href="#">Safety</a></li>
+                                <li class="col-xs-6"><a href="#">About</a></li>
+                                <li class="col-xs-6"><a href="#">Travelo Picks</a></li>
+                                <li class="col-xs-6"><a href="#">Latest Jobs</a></li>
+                                <li class="active col-xs-6"><a href="#">Mobile</a></li>
+                                <li class="col-xs-6"><a href="#">Press Releases</a></li>
+                                <li class="col-xs-6"><a href="#">Why Host</a></li>
+                                <li class="col-xs-6"><a href="#">Blog Posts</a></li>
+                                <li class="col-xs-6"><a href="#">Social Connect</a></li>
+                                <li class="col-xs-6"><a href="#">Help Topics</a></li>
+                                <li class="col-xs-6"><a href="#">Site Map</a></li>
+                                <li class="col-xs-6"><a href="#">Policies</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <h2>Travel News</h2>
+                            <ul class="travel-news">
+                                <li>
+                                    <div class="thumb">
+                                        <a href="#">
+                                            <img src="http://placehold.it/63x63" alt="" width="63" height="63" />
+                                        </a>
+                                    </div>
+                                    <div class="description">
+                                        <h5 class="s-title"><a href="#">Amazing Places</a></h5>
+                                        <p>Purus ac congue arcu cursus ut vitae pulvinar massaidp.</p>
+                                        <span class="date">25 Sep, 2013</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="thumb">
+                                        <a href="#">
+                                            <img src="http://placehold.it/63x63" alt="" width="63" height="63" />
+                                        </a>
+                                    </div>
+                                    <div class="description">
+                                        <h5 class="s-title"><a href="#">Travel Insurance</a></h5>
+                                        <p>Purus ac congue arcu cursus ut vitae pulvinar massaidp.</p>
+                                        <span class="date">24 Sep, 2013</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <h2>Mailing List</h2>
+                            <p>Sign up for our mailing list to get latest updates and offers.</p>
+                            <br />
+                            <div class="icon-check">
+                                <input type="text" class="input-text full-width" placeholder="your email" />
+                            </div>
+                            <br />
+                            <span>We respect your privacy</span>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <h2>About Travelo</h2>
+                            <p>Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massaidp nequetiam lore elerisque.</p>
+                            <br />
+                            <address class="contact-details">
+                                <span class="contact-phone"><i class="soap-icon-phone"></i> 1-800-123-HELLO</span>
+                                <br />
+                                <a href="#" class="contact-email">help@travelo.com</a>
+                            </address>
+                            <ul class="social-icons clearfix">
+                                <li class="twitter"><a title="twitter" href="#" data-toggle="tooltip"><i class="soap-icon-twitter"></i></a></li>
+                                <li class="googleplus"><a title="googleplus" href="#" data-toggle="tooltip"><i class="soap-icon-googleplus"></i></a></li>
+                                <li class="facebook"><a title="facebook" href="#" data-toggle="tooltip"><i class="soap-icon-facebook"></i></a></li>
+                                <li class="linkedin"><a title="linkedin" href="#" data-toggle="tooltip"><i class="soap-icon-linkedin"></i></a></li>
+                                <li class="vimeo"><a title="vimeo" href="#" data-toggle="tooltip"><i class="soap-icon-vimeo"></i></a></li>
+                                <li class="dribble"><a title="dribble" href="#" data-toggle="tooltip"><i class="soap-icon-dribble"></i></a></li>
+                                <li class="flickr"><a title="flickr" href="#" data-toggle="tooltip"><i class="soap-icon-flickr"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endblock %}
+        <div class="bottom">
+            <div class="container">
+                <div class="logo pull-left">
+                    <a href="{{ path('nb_main_homepage') }}" title="nextBus - Accueil">
+                        <img src="{{ absolute_url(asset('assets/images/logo.png')) }}" alt="nextBus la première plateforme de vente de billet de bus en ligne" />
+                    </a>
+                </div>
+                <div class="pull-right">
+                    <a id="back-to-top" href="#" class="animated" data-animation-type="bounce"><i class="soap-icon-longarrow-up circle"></i></a>
+                </div>
+                <div class="copyright pull-right">
+                    <p>&copy; {{ "now" | date('Y') }} nextBus</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+
+{% javascripts filter='jsqueeze'
+    'assets/js/jquery-1.11.1.min.js'
+    'assets/js/jquery.noconflict.js'
+    'assets/js/modernizr.2.7.1.min.js'
+    'assets/js/jquery-migrate-1.2.1.min.js'
+    'assets/js/jquery.placeholder.js'
+    'assets/js/jquery-ui.1.10.4.min.js'
+    'assets/js/bootstrap.js'
+    'assets/components/revolution_slider/js/jquery.themepunch.plugins.min.js'
+    'assets/components/flexslider/jquery.flexslider-min.js'
+    'assets/components/jquery.bxslider/jquery.bxslider.min.js'
+    'assets/js/jquery.stellar.min.js'
+    'assets/js/waypoints.min.js'
+    'assets/js/theme-scripts.js'
+    'assets/js/scripts.js'
+
+
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+{% block scripts %}
+
+{% endblock %}
+
+</body>
+</html>
+
